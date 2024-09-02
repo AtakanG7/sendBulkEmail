@@ -13,6 +13,13 @@ class Email {
       driver: sqlite3.Database
     });
 
+    await db.run(`
+      CREATE TABLE IF NOT EXISTS emails (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT NOT NULL
+      )
+    `);
+
     await db.run('INSERT INTO emails (email) VALUES (?)', [email]);
     await db.close();
   }
@@ -22,6 +29,13 @@ class Email {
       filename: 'emails.db',
       driver: sqlite3.Database
     });
+
+    await db.run(`
+      CREATE TABLE IF NOT EXISTS emails (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT NOT NULL
+      )
+    `);
 
     const emails = await db.all('SELECT * FROM emails');
     await db.close();
@@ -36,6 +50,13 @@ class Email {
       driver: sqlite3.Database
     });
 
+    await db.run(`
+      CREATE TABLE IF NOT EXISTS emails (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT NOT NULL
+      )
+    `);
+
     const emails = await db.all('SELECT * FROM emails LIMIT ? OFFSET ?', [limit, offset]);
     await db.close();
     return emails;
@@ -46,6 +67,13 @@ class Email {
       filename: 'emails.db',
       driver: sqlite3.Database
     });
+
+    await db.run(`
+      CREATE TABLE IF NOT EXISTS emails (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT NOT NULL
+      )
+    `);
 
     const result = await db.get('SELECT COUNT(*) as count FROM emails');
     await db.close();
@@ -65,3 +93,4 @@ class Email {
 }
 
 export default Email;
+
