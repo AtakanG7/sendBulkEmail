@@ -1,6 +1,6 @@
 # Email Management System
 
-An efficient Express.js application for managing email addresses and facilitating bulk email sending, including support for attachments.
+This Express.js application leverages the Brevo API to manage email addresses and facilitate bulk email sending. The system supports sending emails with attachments and offers a comprehensive set of features for managing email addresses.
 
 ## Overview
 
